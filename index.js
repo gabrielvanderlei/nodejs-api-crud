@@ -1,5 +1,5 @@
 const express = require('express')
-const tasks = require('./resources/task') 
+const tasks = require('./resources/task');
 
 const app = express()
 const port = 3000
@@ -86,7 +86,7 @@ app.post('/tarefas/:day/:id/finalizada', (req, res) => {
     } = req.params;
 
     tasks.validateDay(day);
-    
+
     tasks.doTask({
         id,
         day
@@ -102,7 +102,7 @@ app.post('/tarefas/:day/:id/retomada', (req, res) => {
     } = req.params;
 
     tasks.validateDay(day);
-    
+
     tasks.undoTask({
         id,
         day
@@ -111,6 +111,10 @@ app.post('/tarefas/:day/:id/retomada', (req, res) => {
     res.send(tasks.readTasks(day))
 })
 
+app.use(function(err, req, res, next) {
+    res.status(500).send({ "error": err.message });
+});
+
 app.listen(port, () => {
-  console.log(`To-Do app listening on port ${port}`)
+    console.log(`To-Do app listening on port ${port}`)
 })

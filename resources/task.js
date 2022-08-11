@@ -33,6 +33,7 @@ const updateTask = ({
     id
 }) => {
     tasks[day][id] = {
+        ...tasks[day][id],
         content
     }
 }
@@ -59,7 +60,7 @@ const deleteTask = ({
 }
 
 const isValidDay = (day) => {
-    return (!tasks[day]);
+    return Object.keys(tasks).includes(day);
 }
 
 const validateDay = (day) => {
