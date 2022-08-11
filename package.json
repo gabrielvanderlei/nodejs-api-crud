@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-api-crud",
+  "version": "1.0.0",
+  "description": "Simple NodeJS CRUD API using express.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielvanderlei/nodejs-api-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielvanderlei/nodejs-api-crud/issues"
+  },
+  "homepage": "https://github.com/gabrielvanderlei/nodejs-api-crud#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
