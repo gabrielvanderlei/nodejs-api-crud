@@ -6,6 +6,12 @@ const port = 3000
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    res.send({
+        application: "To-Do"
+    })
+})
+
 app.get('/tarefas', (req, res) => {
     res.send(tasks.readTasks())
 })
@@ -57,13 +63,13 @@ app.post('/tarefas/:day', (req, res) => {
     res.send(tasks.readTasks(day))
 })
 
-app.put('/tarefas/:day/:id', (req, res) => {
+app.put('/tarefas/:id', (req, res) => {
     const {
-        day,
         id
     } = req.params;
 
     const {
+        day,
         content
     } = req.body;
 
@@ -79,7 +85,26 @@ app.put('/tarefas/:day/:id', (req, res) => {
     res.send(tasks.readTasks(day))
 })
 
-app.post('/tarefas/:day/:id/finalizada', (req, res) => {
+app.delete('/tarefas/:id', (req, res) => {
+    const {
+        id
+    } = req.params;
+
+    const {
+        day
+    } = req.body;
+
+    tasks.validateDay(day);
+
+    tasks.deleteTask({
+        id,
+        day
+    })
+
+    res.send(tasks.readTasks(day))
+})
+
+app.post('/tarefas/:id/finalizada', (req, res) => {
     const {
         day,
         id
@@ -95,7 +120,7 @@ app.post('/tarefas/:day/:id/finalizada', (req, res) => {
     res.send(tasks.readTasks(day))
 })
 
-app.post('/tarefas/:day/:id/retomada', (req, res) => {
+app.post('/tarefas/:id/retomada', (req, res) => {
     const {
         day,
         id
