@@ -19,9 +19,12 @@
   "homepage": "https://github.com/gabrielvanderlei/nodejs-api-crud#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "express-response-hooks": "^1.0.4",
     "nodemon": "^2.0.19",
+    "object-to-xml": "^2.0.0",
     "swagger-jsdoc": "^6.2.5",
     "swagger-ui-express": "^4.5.0",
+    "xml": "^1.0.1",
     "yamljs": "^0.3.0"
   }
 }

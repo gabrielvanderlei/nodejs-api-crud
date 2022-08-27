@@ -1,4 +1,4 @@
-const tasks = require('../resources/task');
+const { tasks } = require('../../resources');
 
 function TasksItemUpdateController (req, res) {
     const {

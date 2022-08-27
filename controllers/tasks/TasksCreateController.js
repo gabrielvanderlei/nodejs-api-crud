@@ -1,11 +1,8 @@
-const tasks = require('../resources/task');
+const { tasks } = require('../../resources');
 
-function TasksDayCreateController (req, res) {
+function TasksCreateController (req, res) {
     const {
-        day
-    } = req.params;
-
-    const {
+        day,
         content
     } = req.body;
 
@@ -20,4 +17,4 @@ function TasksDayCreateController (req, res) {
     res.send(tasks.readTasks(day))
 }
 
-module.exports = TasksDayCreateController;
+module.exports = TasksCreateController;
