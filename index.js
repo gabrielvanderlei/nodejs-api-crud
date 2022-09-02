@@ -12,7 +12,26 @@ app.use('/json', express.json(), allRoutes)
 app.use('/xml', jsonToXMLMiddleware, allRoutes);
 
 app.get('/', function(req, res){
-    res.send({ "message": "Please select the data format" });
+    const hateoas = {
+        "links": [
+            {
+                "href": "/xml",
+                "rel": "tasks",
+                "type" : "GET"
+            },
+
+            {
+                "href": "/json",
+                "rel": "tasks",
+                "type" : "GET"
+            }
+        ]
+    }
+
+    res.send({ 
+        "message": "Please select the data format",
+        ...hateoas 
+    });
 });
 
 app.listen(port, () => {

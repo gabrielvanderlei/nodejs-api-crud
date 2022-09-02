@@ -9,7 +9,8 @@ const {
     TasksItemDeleteController,
     TasksItemDoneSetController,
     TasksItemReturnSetController,
-    TasksListController
+    TasksListController,
+    TasksItemGetController
 } = require('../controllers/tasks');
 
 const router = express.Router();
@@ -25,6 +26,7 @@ router.route('/tasks/:day')
     .post(TasksDayCreateController)
 
 router.route('/tasks/:id')
+    .get(TasksItemGetController)
     .put(TasksItemUpdateController)
     .delete(TasksItemDeleteController)
 

@@ -7,6 +7,7 @@ const TasksItemDoneSetController = require('./TasksItemDoneSetController');
 const TasksItemReturnSetController = require('./TasksItemReturnSetController');
 const TasksItemUpdateController = require('./TasksItemUpdateController');
 const TasksListController = require('./TasksListController');
+const TasksItemGetController = require('./TasksItemGetController');
 
 module.exports = {
     IndexGetController,
@@ -17,5 +18,6 @@ module.exports = {
     TasksItemDoneSetController,
     TasksItemReturnSetController,
     TasksItemUpdateController,
-    TasksListController
+    TasksListController,
+    TasksItemGetController
 }

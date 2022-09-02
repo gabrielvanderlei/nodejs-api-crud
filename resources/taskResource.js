@@ -27,6 +27,12 @@ const readTasks = (day) => {
     return day ? tasks[day] : tasks;
 }
 
+const readTaskById = ({
+    id
+}) => {
+    return tasks[day][id]
+}
+
 const updateTask = ({
     day,
     content,
@@ -88,5 +94,6 @@ module.exports = {
     doTask,
     undoTask,
     validateDay,
-    validateContent
+    validateContent,
+    readTaskById
 }
